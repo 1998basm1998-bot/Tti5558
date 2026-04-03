@@ -11,7 +11,7 @@
 <body class="dark-mode">
 
     <div class="app-container">
-        <aside class="sidebar" id="sidebar">
+        <aside class="sidebar closed" id="sidebar">
             <div class="sidebar-header">
                 <button id="new-chat-btn" class="primary-btn"><i class="fas fa-plus"></i> دردشة جديدة</button>
             </div>
@@ -31,32 +31,39 @@
 
         <main class="main-content">
             <header>
-                <button id="toggle-sidebar" class="icon-btn"><i class="fas fa-bars"></i></button>
-                <h2 id="app-title">Chat AI Pro</h2>
-                <button id="theme-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+                <div class="header-right">
+                    <button id="toggle-sidebar" class="icon-btn"><i class="fas fa-bars"></i></button>
+                </div>
+                <div class="header-center">
+                    <div class="app-title-pill">ChatGPT</div>
+                </div>
+                <div class="header-left">
+                    <button class="icon-btn"><i class="fas fa-user-plus"></i></button>
+                    <button id="new-chat-btn-top" class="icon-btn"><i class="far fa-edit"></i></button>
+                </div>
             </header>
 
             <div class="chat-container" id="chat-container" style="display: none;">
                 </div>
 
             <div class="welcome-screen" id="welcome-screen">
-                <h1 id="welcome-text">كيف يمكنني مساعدتك اليوم؟</h1>
-                <div class="suggestions">
-                    <button class="suggestion-card" onclick="fillInput('لخص هذا النص: ')">
-                        <i class="fas fa-file-alt"></i>
+                <h1 id="welcome-text">كيف يمكنني المساعدة؟</h1>
+                <div class="suggestions-grid">
+                    <button class="suggestion-pill" onclick="fillInput('إنشاء صورة تعبر عن: ')">
+                        <span>إنشاء صورة</span>
+                        <i class="fas fa-image icon-green"></i>
+                    </button>
+                    <button class="suggestion-pill" onclick="fillInput('لخص هذا النص: ')">
                         <span>لخص النص</span>
+                        <i class="fas fa-file-alt icon-orange"></i>
                     </button>
-                    <button class="suggestion-card" onclick="fillInput('أنشئ صورة تعبر عن: ')">
-                        <i class="fas fa-image"></i>
-                        <span>أنشئ صورة</span>
+                    <button class="suggestion-pill" onclick="fillInput('تحليل البيانات لـ: ')">
+                        <span>تحليل البيانات</span>
+                        <i class="fas fa-chart-bar icon-blue"></i>
                     </button>
-                    <button class="suggestion-card" onclick="fillInput('اكتب مقالاً مفصلاً عن: ')">
-                        <i class="fas fa-pen"></i>
-                        <span>اكتب مقال</span>
-                    </button>
-                    <button class="suggestion-card" onclick="fillInput('ضع خطة عمل لـ: ')">
-                        <i class="fas fa-tasks"></i>
+                    <button class="suggestion-pill" onclick="fillInput('ضع خطة عمل لـ: ')">
                         <span>ضع خطة</span>
+                        <i class="far fa-lightbulb icon-yellow"></i>
                     </button>
                 </div>
             </div>
@@ -66,13 +73,16 @@
                     <img id="image-preview" src="" alt="Preview">
                     <button id="remove-image"><i class="fas fa-times"></i></button>
                 </div>
-                <div class="input-wrapper">
+                <div class="input-wrapper-pill">
+                    <button id="dynamic-send-btn" class="dynamic-btn voice-mode">
+                        <i class="fas fa-water"></i> </button>
+                    <button class="icon-btn mic-btn"><i class="fas fa-microphone"></i></button>
+                    
+                    <textarea id="message-input" placeholder="اطرح سؤالك على Cha..." rows="1"></textarea>
+                    
                     <input type="file" id="image-upload" accept="image/*" style="display: none;">
-                    <label for="image-upload" class="icon-btn" title="رفع صورة"><i class="fas fa-paperclip"></i></label>
-                    <textarea id="message-input" placeholder="اكتب رسالتك هنا... (Shift + Enter لسطر جديد)" rows="1"></textarea>
-                    <button id="send-btn" class="icon-btn send-btn"><i class="fas fa-paper-plane"></i></button>
+                    <label for="image-upload" class="icon-btn plus-btn" title="رفع صورة"><i class="fas fa-plus"></i></label>
                 </div>
-                <div class="footer-text">يمكن للذكاء الاصطناعي ارتكاب أخطاء. يرجى التحقق من المعلومات المهمة.</div>
             </div>
         </main>
     </div>
@@ -85,10 +95,7 @@
                 <label>مفتاح API (اختياري)</label>
                 <input type="password" id="api-key-input" placeholder="sk-...">
             </div>
-            <div class="settings-group">
-                <label>الاسم الترحيبي</label>
-                <input type="text" id="welcome-text-input" value="كيف يمكنني مساعدتك اليوم؟">
-            </div>
+            <button id="theme-toggle" class="primary-btn" style="margin-top: 15px;"><i class="fas fa-moon"></i> تبديل المظهر</button>
             <button id="clear-data-btn" class="danger-btn"><i class="fas fa-trash"></i> مسح جميع البيانات</button>
             <button id="save-settings-btn" class="primary-btn" style="margin-top: 15px; width: 100%;">حفظ الإعدادات</button>
         </div>
