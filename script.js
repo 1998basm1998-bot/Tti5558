@@ -11,6 +11,7 @@ const elements = {
     themeToggle: document.getElementById('theme-toggle'),
     sidebar: document.getElementById('sidebar'),
     toggleSidebar: document.getElementById('toggle-sidebar'),
+    closeSidebar: document.getElementById('close-sidebar'),
     newChatBtnHeader: document.getElementById('new-chat-btn-top'),
     newChatBtnSidebar: document.getElementById('new-chat-btn'),
     chatHistory: document.getElementById('chat-history'),
@@ -58,6 +59,10 @@ elements.themeToggle.addEventListener('click', () => {
 
 elements.toggleSidebar.addEventListener('click', () => {
     elements.sidebar.classList.toggle('closed');
+});
+
+elements.closeSidebar.addEventListener('click', () => {
+    elements.sidebar.classList.add('closed');
 });
 
 elements.newChatBtnHeader.addEventListener('click', createNewChat);
