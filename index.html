@@ -12,13 +12,24 @@
 
     <div class="app-container">
         <aside class="sidebar closed" id="sidebar">
-            <div class="sidebar-header">
-                <button id="new-chat-btn" class="primary-btn"><i class="fas fa-plus"></i> دردشة جديدة</button>
+            <div class="sidebar-top-header">
+                <i class="fas fa-robot" style="font-size: 20px;"></i>
+                <button id="close-sidebar" class="icon-btn" style="color: var(--text-main);"><i class="fas fa-times"></i></button>
             </div>
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="search-chats" placeholder="البحث في الدردشات...">
+            
+            <div class="sidebar-menu-list">
+                <button id="new-chat-btn" class="sidebar-menu-btn">
+                    <i class="far fa-edit"></i> دردشة جديدة
+                </button>
+                <div class="sidebar-menu-btn search-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-chats" placeholder="البحث في الدردشات...">
+                </div>
+                <button id="images-btn" class="sidebar-menu-btn">
+                    <i class="far fa-image"></i> الصور
+                </button>
             </div>
+
             <div class="chat-history" id="chat-history">
                 </div>
             
